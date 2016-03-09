@@ -1,0 +1,24 @@
+describe("Email validation",function()
+{
+	var email=prompt("Email");
+	var password=prompt("password");	
+
+	it("check email should @ and . ",function()
+	{
+		var regexpemail=/[A-Za-z0-9]+[@]+[A-Za-z0-9]+[.]+[A-Za-z0-9]+/;
+		var ansemail=regexpemail.test(email);
+		expect(true).toEqual(ansemail);
+	});
+	
+	
+	it("password should be alphanumeric ",function()
+		var regexppass=/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Za-z])[a-zA-Z0-9!@#$%^&*]*$/;
+		var anspass=regexppass.test(password);
+		expect(true).toEqual(anspass);
+	});
+
+});
+
+
+
+

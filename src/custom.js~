@@ -1,0 +1,17 @@
+
+var customMatchers = {
+
+		toBePassword: function()
+		{
+			return{
+			compare:function(actual)
+			{
+				return {
+				var regexp=/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Za-z])[a-zA-Z0-9!@#$%^&*]*$/;
+				pass:regexp.test(actual);
+				};	
+			}
+	   		};	
+		};
+
+};

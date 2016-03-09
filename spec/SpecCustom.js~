@@ -1,0 +1,61 @@
+describe(" validation",function()
+{
+ 	beforeEach(function () {  
+	jasmine.addMatchers({
+		isValidPasswordCustom: function()
+		{
+			return{
+			compare:function(actual)
+			{
+				return {
+				pass:isValidPassword(actual)
+				};	
+			}
+	   };	
+	}
+	});
+	});
+    
+	
+	beforeEach(function () {  
+	jasmine.addMatchers({
+		isValidEmailCustom: function()
+		{
+			return{
+			compare:function(actual)
+			{
+				return {
+				pass:isValidEmail(actual)
+				};	
+			}
+	   };	
+	}
+	});
+	});
+
+
+	it("check password should alphanumeric",function()
+	{
+		expect("hgs@436gh").isValidPasswordCustom();
+	});
+
+	it("check password should not empty",function()
+	{
+		expect("").not.isValidPasswordCustom();
+	});
+	
+	it("check password should contains special character ",function()
+	{
+		expect("gdgfhk45").not.isValidPasswordCustom();
+	});
+
+	it("check password should contains character ",function()
+	{
+		expect("@#45635845").not.isValidPasswordCustom();
+	});
+
+	it("check password should contains number ",function()
+	{
+		expect("@#shgdtsdf").not.isValidPasswordCustom();
+	});
+});
